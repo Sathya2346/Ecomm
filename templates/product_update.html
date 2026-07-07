@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Product Update{% endblock %}
+
+{% block content %}
+    <h2>Product Update</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" value="{{ product.name }}" required>
+        </div>
+        <div>
+            <label for="description">Description:</label>
+            <textarea name="description" id="description">{{ product.description }}</textarea>
+        </div>
+        <div>
+            <label for="price">Price:</label>
+            <input type="number" name="price" id="price" value="{{ product.price }}" required>
+        </div>
+        <div>
+            <label for="stock">Stock:</label>
+            <input type="number" name="stock" id="stock" value="{{ product.stock }}" required>
+        </div>
+        <button type="submit">Update Product</button>
+    </form>
+{% endblock %}
